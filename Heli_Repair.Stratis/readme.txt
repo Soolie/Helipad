@@ -16,6 +16,6 @@
   Download SFX folder and put into mission root
   https://www.dropbox.com/sh/dw5lcoouo1ebwlz/AACdrnoML48GMwAj0y0tI6Xga
   
-  Change options in "helipadInit.sqf" and "helipad.sqf"
+  Change options in "Scripts\helipadInit.sqf" and "Scripts\helipad.sqf"
    
   
