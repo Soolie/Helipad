@@ -4,7 +4,7 @@
   To test this out:
   
   Move the folder Heli_Repair.Stratis into your Arma 3 missions folder
-  Probably here -  C:\Users\YourName\Documents\Arma 3 - Other Profiles\Soolie\missions
+  Probably here -  C:\Users\YourName\Documents\Arma 3 - Other Profiles\YourArmaName\missions
   Load it up in the editor
   
   
