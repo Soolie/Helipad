@@ -1,12 +1,15 @@
-dev = "Soolie";
-author="Soolie";
+dev = "";
+author="";
 OnLoadName = "";
-OnLoadMission = "Helipad Repair and Refuel";
+OnLoadMission = "";
 loadScreen = "";
 respawn = "BASE";
 respawnDelay = 10;
 respawnDialog = true;
 disabledAI = true;
+
+
+//====HELIPAD SOUNDS=====================================
 
 class CfgSounds
 {
@@ -34,6 +37,6 @@ class DING
 
 };
 
-
+//=========================================================
 
 
