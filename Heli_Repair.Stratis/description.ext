@@ -1,0 +1,39 @@
+dev = "Soolie";
+author="Soolie";
+OnLoadName = "";
+OnLoadMission = "Helipad Repair and Refuel";
+loadScreen = "";
+respawn = "BASE";
+respawnDelay = 10;
+respawnDialog = true;
+disabledAI = true;
+
+class CfgSounds
+{
+
+sounds[] = {CLUNK, REPAIR, DING};
+
+class CLUNK
+{
+	name = "CLUNK";
+	sound[] = {\sfx\CLUNK.ogg, 1.8, 1.0};
+	titles[] = {};
+};
+class REPAIR
+{
+	name = "REPAIR";
+	sound[] = {\sfx\REPAIR.ogg, 2, 1.0};
+	titles[] = {};
+};
+class DING
+{
+	name = "DING";
+	sound[] = {\sfx\DING.ogg, 1, 1.0};
+	titles[] = {};
+};
+
+};
+
+
+
+
