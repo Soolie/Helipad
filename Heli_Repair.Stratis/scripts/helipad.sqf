@@ -1,5 +1,5 @@
 /*
-	Script by : Soolie & ScoobySnax
+	Script by : Soolie & Scoobs
 	Date : 5/12/2014
 	Tutorial : http://www.youtube.com/user/MikeSulo
 	
