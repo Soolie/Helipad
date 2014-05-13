@@ -1,6 +1,5 @@
 /*
 	Script by : Soolie & ScoobySnax
-	With help from : Remix
 	Date : 5/12/2014
 	Tutorial : http://www.youtube.com/user/MikeSulo
 	
