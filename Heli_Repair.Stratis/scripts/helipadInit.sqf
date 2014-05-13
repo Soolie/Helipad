@@ -2,7 +2,14 @@
 While{true} do {
 waituntil
 {
+
+
+//======ADD OR REMOVE CLASSNAMES HERE TO DECIDE WHICH HELIPADS WILL REFUEL/REPAIR/REARM============
+//===========5]>0 MEANS YOU NEED TO BE LESS THAN 5M AWAY FOR IT TO ACTIVATE==========================
+
 count nearestObjects [player, ["Land_HelipadCivil_F","Land_HelipadCircle_F","Land_HelipadRescue_F","Land_HelipadSquare_F"], 5] > 0;
+
+//=================================================================================================
 };
 	if (vehicle player == player) then {
 	}
