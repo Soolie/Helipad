@@ -1,13 +1,34 @@
 /*
-	Script by : Soolie 
-	Email : MikeSulo@gmail.com
-	YouTube : http://www.youtube.com/user/MikeSulo
-	Date : 6/6/2013
+	Script by : Soolie & ScoobySnax
+	Date : 5/12/2014
+	Tutorial : http://www.youtube.com/user/MikeSulo
+	
+	All helicopters will refuel/repair/rearm after landing on any vanilla Arma 3 helipad
+	To add/remove helipads, go to scripts\helipadInit.sqf
+	While the repair is going on the player receives a few messages about the status of the vehicle
+	One of these is the model name of the vehicle
+	If you are using helis from a mod and want the helipad to return a model name you must insert some new code
+	This is for the little bird 
+	
+				if (typeOf _heli == "B_Heli_Light_01_F") then {
+			_heli vehicleChat format ["Model: MH-9, Little Bird"];
+			};
+			;
+			
+	Copy the code below and paste it under the others (about 125 lines down)
+	Change className and the message
+	Also you can customize the ones I did below
+
+				if (typeOf _heli == "className") then {
+			_heli vehicleChat format ["Message"];
+			};
+			;
+
 
 
 */
 
-serialno = serialno + 14579;
+serialno = serialno + 1;
 serial = serialno;
 
 
@@ -65,6 +86,10 @@ if (heliPadOn > 0) then {
 			sleep 1;
 			
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
+			
+			
+			
+			
 			if (typeOf _heli == "B_Heli_Light_01_F") then {
 			_heli vehicleChat format ["Model: MH-9, Little Bird"];
 			};
@@ -115,6 +140,10 @@ if (heliPadOn > 0) then {
 			_heli vehicleChat format ["Model: WY-55, Hellcat Green"];
 			};
 			;
+			
+			
+			
+			
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			sleep 2;
 			_heli vehicleChat format ["Serial No: #H%1", serial];
