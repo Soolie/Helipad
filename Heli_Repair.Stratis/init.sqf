@@ -1,4 +1,4 @@
-	 
+	enableSaving [false, false];
 
 //=================HELIPAD=====================
 	[] execVM "scripts\helipadInit.sqf";
