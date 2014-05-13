@@ -1,4 +1,6 @@
-  
+
+  Download Link: https://github.com/Soolie/Helipad/archive/master.zip
+
   To test this out:
   
   Move the folder Heli_Repair.Stratis into your Arma 3 missions folder
