@@ -21,7 +21,7 @@ count nearestObjects [player, ["Land_HelipadCivil_F","Land_HelipadCircle_F","Lan
 		sleep 0.3;	
 		vehicle player execVM "scripts\helipad.sqf";
 		vehicle player setFuel _Helicopter_fuel;	
-		sleep 60;
+		sleep 120;
 		heliPadOn = 0;
 		};
 };
