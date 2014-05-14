@@ -4,7 +4,7 @@
   To test this out:
   
   Move the folder Heli_Repair.Stratis into your Arma 3 missions folder
-  Probably here -  C:\Users\YourName\Documents\Arma 3 - Other Profiles\YourArmaName\missions
+  Probably here -  C:\Users\YourName\Documents\Arma 3 - Other Profiles\Soolie\missions
   Load it up in the editor
   
   
@@ -16,6 +16,6 @@
   Download SFX folder and put into mission root
   https://www.dropbox.com/sh/dw5lcoouo1ebwlz/AACdrnoML48GMwAj0y0tI6Xga
   
-  Change options in "Scripts\helipadInit.sqf" and "Scripts\helipad.sqf"
+  Change options in "helipadInit.sqf" and "helipad.sqf"
    
   

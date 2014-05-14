@@ -1,5 +1,5 @@
 /*
-	Script by : Soolie & Scoobs
+	Script by : Soolie & ScoobySnax
 	Date : 5/12/2014
 	Tutorial : http://www.youtube.com/user/MikeSulo
 	
@@ -39,33 +39,43 @@ if (heliPadOn > 0) then {
 	else
 		{
 		heliPadOn = 1;
+		
 		_heli = vehicle player;
+		_Ucount = ({_x in _heli} count units _heli);
+		_Pcount = _Ucount - 1;
+		_mass = getMass _heli;
+		_masskg = _mass * 2.2;
+		
 		_heli setVehicleAmmo 1;
 		_heli_fuel = fuel _heli;
 		_heli setFuel 0;
-		sleep 4;
-		_heli_dam = _heli;
+		
+		
 		sleep 0.2;	
 		heli_cam = _heli;
-			heliCam = [heli_cam,false,"ZOOM"] call addCamera;  
+			heliCam = [heli_cam,false] call addCamera;  
 			_nil = [] spawn {   
-				[heliCam,true] call startCinematic;		[heliCam,heli_cam,false,11] call zoomShot;   
-				sleep 24;   
-				[heliCam] call stopCinematic;   [heliCam] call removeCamera;   
+				[heliCam,true] call startCinematic;		
+				[heliCam,heli_cam,false,11] call panAround;   
 			};
 			_helitype = typeOf _heli;
-			sleep 2;
+			sleep 3.5;
+			
+			
+			
 			_heli say "DING";
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			_heli vehicleChat format ["Hello %1", name player];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			sleep 2;
-			_heli vehicleChat format ["Welcome to HelipadBot v1.0"];
+			_heli vehicleChat format ["Welcome to HelipadBot v1.5"];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			sleep 2;
 			_heli vehicleChat format ["Retrieving Vehicle Information"];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
-			sleep 2;
+			sleep 1.5;
+			
+			
 			_heli vehicleChat format ["Loading......"];
 			sleep 0.2;
 			_heli vehicleChat format ["Loading........"];
@@ -85,11 +95,8 @@ if (heliPadOn > 0) then {
 			_heli vehicleChat format ["Loading......................"];
 			sleep 1;
 			
-			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
-			
-			
-			
-			
+			_heli say "DING";
+			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];	
 			if (typeOf _heli == "B_Heli_Light_01_F") then {
 			_heli vehicleChat format ["Model: MH-9, Little Bird"];
 			};
@@ -146,12 +153,23 @@ if (heliPadOn > 0) then {
 			
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			sleep 2;
+			_heli say "DING";
 			_heli vehicleChat format ["Serial No: #H%1", serial];
+			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
+			sleep 2;
+			_heli say "DING";
+			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
+			_heli vehicleChat format ["Weight: %1 lb", round _mass];
+			_heli vehicleChat format ["        %1 kg", round _masskg];
+			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
+			sleep 2;
+			_heli say "DING";
+			_heli vehicleChat format ["Passengers: %1", _Pcount];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			sleep 2;
 			_heli vehicleChat format ["Checking Vehicle Damage"];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
-			sleep 2;
+			sleep 1.5;
 			_heli vehicleChat format ["Loading......"];
 			sleep 0.2;
 			_heli vehicleChat format ["Loading........"];
@@ -172,6 +190,7 @@ if (heliPadOn > 0) then {
 			sleep 1;
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			if ((getDammage _heli) < 0.00001) then {
+				_heli say "DING";
 				_heli vehicleChat format ["Vehicle Not Damaged"];
 				_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 				sleep 1;
@@ -179,11 +198,15 @@ if (heliPadOn > 0) then {
 				else
 					{	
 					_heli setDamage 0;
+					_heli say "DING";
 					_heli vehicleChat format ["Repairing Vehicle"];
+					_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 					sleep 0.2;	
-					_heli vehicleChat format ["Please Wait...."];
+					_heli vehicleChat format ["Please Wait..............."];
+					
+					sleep 0.5;
 					_heli say "REPAIR";
-					sleep 2;
+					sleep 1.5;
 			};
 			
 			//
@@ -198,19 +221,23 @@ if (heliPadOn > 0) then {
 				} forEach _mags;
 				{
 					_heli say "CLUNK";
-					sleep 0.2;	
+					sleep 0.2;
+					_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
+					_heli say "DING";
 					_heli vehicleChat format ["Resupplying Ammo %1", _x];
+					_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 					sleep 0.5;	
-					_heli vehicleChat format ["Please Wait....."];
+					_heli vehicleChat format ["Please Wait.............."];
 					_heli say "CLUNK";
 					_heli addMagazine _x;
 					sleep 0.3;
 				} forEach _mags;
 			};
-			
+			_heli say "DING";
+			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			_heli vehicleChat format ["Checking Fuel Tank"];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
-			sleep 2;
+			sleep 1.5;
 			_heli vehicleChat format ["Loading......"];
 			sleep 0.2;
 			_heli vehicleChat format ["Loading........"];
@@ -233,6 +260,7 @@ if (heliPadOn > 0) then {
 			sleep 0.2;
 			
 			if (_heli_fuel > 0.95) then {
+				_heli say "DING";
 				_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 				_heli vehicleChat format ["Fuel Tank Full"];
 				_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
@@ -240,76 +268,36 @@ if (heliPadOn > 0) then {
 				}
 				else
 					{
-					while {fuel _heli < 0.09} do {
-						_heli setFuel 0.10;
-						_heli vehicleChat format ["Refuelng"];
-						sleep 0.2;	
-						_heli vehicleChat format ["Please Wait......"];
+					while {fuel _heli < 0.33} do {
+						_heli setFuel 0.34;
 						_heli say "CLUNK";
+						_heli vehicleChat format ["Refuelng..........."];
 						sleep 0.8;						
 					};
-					while {fuel _heli < 0.19} do {
-						_heli setFuel 0.20;
+					while {fuel _heli < 0.66} do {
+						_heli setFuel 0.67;
 						_heli say "CLUNK";
-						sleep 0.8;
-					};
-					while {fuel _heli < 0.29} do {
-						_heli setFuel 0.30;
-						_heli say "CLUNK";
-						sleep 0.8;
-					};
-					while {fuel _heli < 0.39} do {
-						_heli setFuel 0.40;
-						_heli say "CLUNK";
-						sleep 0.8;
-					};
-					while {fuel _heli < 0.49} do {
-						_heli setFuel 0.50;
-						_heli vehicleChat format ["Refuelng"];
-						sleep 0.2;	
-						_heli vehicleChat format ["Please Wait......"];						
-						_heli say "CLUNK";
-						sleep 0.8;						
-					};
-					while {fuel _heli < 0.59} do {
-						_heli setFuel 0.60;
-						_heli say "CLUNK";
-						sleep 0.8;
-					};
-					while {fuel _heli < 0.69} do {
-						_heli setFuel 0.70;
-						_heli say "CLUNK";
-						sleep 0.8;
-					};
-					while {fuel _heli < 0.79} do {
-						_heli setFuel 0.80;
-						_heli say "CLUNK";
-						sleep 0.8;
-					};
-					while {fuel _heli < 0.89} do {
-						_heli setFuel 0.90;
-						_heli vehicleChat format ["Refuelng"];
-						sleep 0.2;	
-						_heli vehicleChat format ["Please Wait......"];
-						_heli say "CLUNK";
+						_heli vehicleChat format ["Refuelng..........."];
 						sleep 0.8;
 					};
 					while {fuel _heli < 0.99} do {
 						_heli setFuel 1;
-						_heli say "CLUNK";
-						sleep 0.3;
-						_heli say "CLUNK";									
+						_heli say "DING";
+						_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];
+						_heli vehicleChat format ["Fuel Tank Full"];
+						_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~"];								
 					};	
 			};
-			sleep 2;
+			
 			_heli engineOn true;
+			sleep 2;
 			_heli say "DING";
 			sleep 0.4;			
-			_heli say "DING";
-			sleep 1;	
+			_heli say "DING";	
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
 			_heli vehicleChat format ["YOU'RE CLEAR FOR TAKEOFF"];
 			_heli vehicleChat format ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"];
-			sleep 5;
+			sleep 45;
 			if (true) exitWith {};
 };
+
