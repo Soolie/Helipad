@@ -6,4 +6,3 @@
   Instructions inside readme.txt in Heli_Repair.stratis
   
   https://github.com/Soolie/Helipad/archive/master.zip
-  
